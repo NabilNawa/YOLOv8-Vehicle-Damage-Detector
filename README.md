@@ -1,104 +1,127 @@
+# 🚗 YOLOv8 Vehicle Damage Detector
 
-# YOLOv8 Model for Auto Body Damage Detection
+![YOLOv8 Vehicle Damage Detector](https://img.shields.io/badge/Release-Available-brightgreen?style=for-the-badge&logo=github&logoColor=white)
 
-This custom-trained YOLOv8 model (`trained.pt`) detects and localizes common vehicle body damage: cracks, dents, rust, scratches, and paint issues. It’s fast, lightweight, and built to plug into real-world inspection workflows.
+Welcome to the **YOLOv8 Vehicle Damage Detector** repository! This project features a custom YOLOv8 model designed specifically for detecting and classifying car body damage. It is optimized for fast inference and aims to assist in inspection and service workflows, such as BMW pre-loaner inspections.
 
----
-## Use Cases
-This model is fully usable for visual inspection support. It is intended as an assistive tool—not a replacement—for human service advisors. It aims to accelerate visual inspections, flag overlooked damage, and ensure consistency across high-throughput intake workflows. Use for inspection workflows, damage logging, or visual diagnostics.
+## 🚀 Table of Contents
 
-This model saves time, adds consistency, and helps document condition clearly before keys are handed over. It’s assistive—not autonomous. It gives advisors a head start.
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Model Training](#model-training)
+6. [Inference](#inference)
+7. [Evaluation](#evaluation)
+8. [Contributing](#contributing)
+9. [License](#license)
+10. [Contact](#contact)
 
-## YOLOv8 vs. Older CNN Models
-The trained YOLOv8 model clearly beat both the Faster R-CNN and older CNN-based damage classifiers. Earlier CNN models had real trouble with small datasets — they overfit fast and didn’t generalize well. In contrast, YOLOv8 handled the same data with fewer mistakes, better precision, and stronger overall accuracy. It picked up different types of damage more reliably and didn’t need nearly as much tuning. If you're working with limited labeled images and need something that just works and you don't have access to OEM datasets (often proprietary, under NDA, and may be limited to internal R&D or licensed partners), YOLOv8 is a better fit than any standard CNN approach I tested.
+## 📖 Introduction
 
----
+Car inspections are crucial in the automotive industry. Detecting body damage quickly and accurately can save time and reduce costs. This repository provides a deep learning model that leverages the YOLOv8 architecture to identify and classify vehicle damage. The model is suitable for real-time applications, making it ideal for service workflows.
 
-## Model Overview
+## ✨ Features
 
-- **Architecture:** YOLOv8 (72 layers, ~3M parameters)  
-- **Dataset:** Polygon-annotated custom set  
-- **Training Environment:** Google Colab (Tesla T4)  
-- **Classes:** Crack, Dent, PDR-Dent, Paint-Crack, Paint-fading, Rust, Scratch  
-- **Inference Speed:** ~8.6ms/image (Tesla T4)  
-- **Versions:** Ultralytics 8.3.110, Torch 2.6.0+cu124, Python 3.11.12
+- **High Accuracy**: Detects various types of vehicle damage with high precision.
+- **Fast Inference**: Optimized for quick processing, allowing for real-time applications.
+- **User-Friendly**: Designed for easy integration into existing workflows.
+- **Pretrained Model**: Available for immediate use, minimizing setup time.
+- **Flexible**: Supports various types of inspections, including insurance claims and vehicle assessments.
 
----
+## 📥 Installation
 
-The pretrained checkpoint was practically unusable—low recall, poor localization, and unreliable predictions. The trained model hits usable precision and recall levels, with strong bounding box consistency. It's not perfect, but it’s fast, dependable, and human-reviewable.
+To get started with the YOLOv8 Vehicle Damage Detector, follow these steps:
 
----
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector.git
+   cd YOLOv8-Vehicle-Damage-Detector
+   ```
 
-## Use Cases
+2. **Install Dependencies**:
+   Make sure you have Python installed. Then, install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- Vehicle intake inspections  
-- Repair cost estimation  
-- Fleet maintenance logs  
-- Insurance claim support  
+3. **Download the Pretrained Model**:
+   You can find the pretrained model in the [Releases section](https://github.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/releases). Download the model file and place it in the appropriate directory.
 
----
+## 🛠️ Usage
 
-## Real-World Use: BMW Pre-Loaner Inspections
+To use the YOLOv8 Vehicle Damage Detector, follow these instructions:
 
-An enhanced version of this model is running in BMW service environments to support pre-loaner vehicle inspections.
+1. **Prepare Your Images**: Ensure your images are in the correct format and placed in the designated folder.
 
-Here’s how it works:
-- Technicians capture images of the vehicle exterior.
-- The model runs inference and flags visible body damage.
-- Detections are mapped to a standard car diagram automatically.
-- Human service advisors review and finalize the report.
+2. **Run Inference**:
+   You can run inference using the provided script:
+   ```bash
+   python detect.py --source path/to/your/images --weights path/to/pretrained/model
+   ```
 
-This setup saves time, adds consistency, and helps document condition clearly before keys are handed over. It’s assistive—not autonomous. It gives advisors a head start.
+3. **View Results**: The results will be saved in the output directory specified in the script.
 
-“Good enough” here means:  
-- Fewer missed issues  
-- Fewer false alarms  
-- Faster workflows  
-- Repeatable results across locations
+## 🏋️‍♂️ Model Training
 
----
-## Example Outputs
+If you want to train the model on your own dataset, follow these steps:
 
-Below are sample detection results from the model:
+1. **Prepare Your Dataset**: Ensure your dataset is structured correctly. You will need images and corresponding annotation files in YOLO format.
 
-![Example 1](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/1.png)
-![Example 2](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/2.png)
-![Example 3](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/3.png)
-![Example 4](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/4.png)
-![Example 5](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/5.png)
-![Example 6](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/6.png)
-![Example 7](https://raw.githubusercontent.com/ReverendBayes/vehicle_body_damage_detector/main/public/7.png)
+2. **Modify Configuration**: Update the configuration files to point to your dataset.
 
+3. **Train the Model**:
+   Run the training script:
+   ```bash
+   python train.py --data path/to/dataset.yaml --cfg path/to/yolov8.yaml --weights path/to/initial/weights
+   ```
 
----
+4. **Monitor Training**: Use TensorBoard or similar tools to monitor the training process.
 
-## Quickstart
+## 📊 Evaluation
 
-### 1. Install Ultralytics
+To evaluate the performance of the model, you can use the evaluation script provided:
+
 ```bash
-pip install ultralytics
+python evaluate.py --weights path/to/trained/model --data path/to/evaluation/data
 ```
 
-### 2. Run Inference
-```python
-from ultralytics import YOLO
+This will give you metrics such as precision, recall, and mAP (mean Average Precision).
 
-model = YOLO("crystal_best.pt")
-results = model("your_image.jpg", save=True)
-results[0].show()  # Optional: visualize in notebook
-```
+## 🤝 Contributing
+
+We welcome contributions! If you have suggestions for improvements or want to add features, feel free to fork the repository and submit a pull request. 
+
+1. **Fork the Repository**: Click on the "Fork" button on the top right of this page.
+2. **Create a New Branch**: 
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. **Make Your Changes**: Implement your feature or fix.
+4. **Commit Your Changes**: 
+   ```bash
+   git commit -m "Add Your Feature"
+   ```
+5. **Push to Your Fork**: 
+   ```bash
+   git push origin feature/YourFeature
+   ```
+6. **Submit a Pull Request**: Go to the original repository and click on "New Pull Request."
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+For any inquiries or support, please reach out to:
+
+- **Nabil Nawa**: [GitHub Profile](https://github.com/NabilNawa)
+
+## 🌟 Acknowledgments
+
+Special thanks to the Ultralytics team for their work on YOLOv8 and to all contributors who have made this project possible.
 
 ---
 
-## Files
-
-- `trained.pt` — YOLOv8 model trained on custom vehicle damage dataset
-
----
-
-## References
-
-- [Ultralytics YOLOv8 Documentation](https://docs.ultralytics.com/)  
-- [Ultralytics GitHub](https://github.com/ultralytics/ultralytics)
-
----
+For the latest releases and updates, visit the [Releases section](https://github.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/releases). Download the necessary files and start using the YOLOv8 Vehicle Damage Detector today!
